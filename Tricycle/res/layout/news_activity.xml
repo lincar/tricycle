@@ -1,0 +1,58 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+    	
+    	<include layout="@layout/detail_top_menu" />
+	    <ScrollView 
+	        android:id="@+id/news_activity_scroll"
+	        android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:orientation="vertical">
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical">
+
+			    <com.tricycle.news.newsdetail.NewsListView 
+			        android:id="@+id/news_activity_listview"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:divider="#00000000"  
+			        android:dividerHeight="0dip"  
+			        android:listSelector="@android:color/transparent"  />
+			    <LinearLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_margin="20dp"
+				    android:background="@drawable/comment_background"
+				    android:orientation="vertical">
+				    <TextView
+				        android:id="@+id/news_activity_comment_title"
+				        android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:text="评论"
+				    	android:textSize="20sp" />
+				    <com.tricycle.news.newsdetail.NewsListView  
+				        android:id="@+id/news_activity_comment_listview"
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_margin="20dp"/>
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+		<include layout="@layout/detail_bottom_menu" />
+	</LinearLayout>
+	<com.tricycle.news.utils.MyDrawerLayout
+	    android:layout_width="260dp"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"/>
+
+</android.support.v4.widget.DrawerLayout>
